@@ -1,6 +1,6 @@
 package com.sow.general;
 
-import com.sow.hackerRank.test;
+import com.sow.hackerRank.Test;
 
 public class TestCallByValue {
 
