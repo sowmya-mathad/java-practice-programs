@@ -1,5 +1,10 @@
 package com.sow.general;
 
+/**
+ * 
+ * @author Sowmya
+ *
+ */
 interface A
 {
 	void a();
