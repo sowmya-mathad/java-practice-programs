@@ -5,38 +5,37 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Program to check the absolute difference between the actual and reversed
+ * string, if its equal then print "Funny" else print "Not Funny"
+ * 
+ * @author Sowmya
+ *
+ */
 public class FunnyWords {
-
-	// Complete the funnyString function below.
 	static String funnyString(String s) {
-	
-
 		boolean isFunny = false;
-		String stringType = null;
 		int len = s.length() - 1;
 		int input[] = new int[len + 1];
 		int ascii[] = new int[len + 1];
 		int diff[] = new int[len + 1];
 		int difference[] = new int[len + 1];
-		for (int i = 0; i <= len; i++) {
-			input[i] = s.charAt(i);
-		}
+
 		for (int i = len; i >= 0; i--) {
+			// convert the characters of given string into their respective ascii values
+			input[i] = s.charAt(i);
+			// Reverse the given string and convert characters of string into their
+			// respective ascii values
 			ascii[len - i] = s.charAt(i);
-			System.out.println(ascii[len - i]);
 		}
+
 		for (int i = 0; i < len; i++) {
-			for (int j = i + 1; j <= len; j++) {
+			for (int j = i + 1; j <= len;) {
 				difference[i] = Math.abs(ascii[i] - ascii[j]);
 				diff[i] = Math.abs(input[i] - input[j]);
 				break;
 			}
-
 		}
-		for (int i : difference)
-			System.out.println(i);
-		for (int i : diff)
-			System.out.println(i);
 
 		for (int i = 0; i < len; i++) {
 			if (difference[i] != diff[i]) {
@@ -44,13 +43,12 @@ public class FunnyWords {
 				break;
 			} else
 				isFunny = true;
-
 		}
+
 		if (isFunny)
 			return "Funny";
 		else
 			return "Not Funny";
-
 	}
 
 	private static final Scanner scanner = new Scanner(System.in);
